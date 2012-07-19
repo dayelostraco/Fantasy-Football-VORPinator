@@ -1,16 +1,20 @@
 package org.vorpinator.football.parser
 
+import org.vorpinator.football.model.player.Player
+import org.vorpinator.football.filter.PlayerFilter
+
 /**
  * User: Dayel Ostraco
  * Date: 7/16/12
  * Time: 4:45 PM
  */
 
-//EspnCsvParser parser = new EspnCsvParser();
+//EspnProjectionCsvParser parser = new EspnProjectionCsvParser();
 //
 //def filteredQuarterBacks = new ArrayList<Player>()
 //PlayerFilter.filterByPassAttempts parser.parseQuarterbacks(new File("/Users/dayelostraco/Desktop/VORP Projections/ESPN QB Projections.txt"), 2012),filteredQuarterBacks,250
 //
+//print filteredQuarterBacks
 //def filteredRunningBacks = new ArrayList<Player>()
 //PlayerFilter.filterByRushingAttempts parser.parseRunningBacks(new File("/Users/dayelostraco/Desktop/VORP Projections/ESPN RB Projections.txt"), 2012),filteredRunningBacks,150
 //

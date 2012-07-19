@@ -7,9 +7,7 @@ package org.vorpinator.football.model.player
  */
 abstract class Player {
 
-    private String firstName
-    private String lastName
-    private String suffix
+    private String name
     private Integer year
     private String team
     private String position
@@ -19,28 +17,12 @@ abstract class Player {
     private Integer sourceRank
     private Double vorp
 
-    String getFirstName() {
-        return firstName
+    String getName() {
+        return name
     }
 
-    void setFirstName(String firstName) {
-        this.firstName = firstName
-    }
-
-    String getLastName() {
-        return lastName
-    }
-
-    void setLastName(String lastName) {
-        this.lastName = lastName
-    }
-
-    String getSuffix() {
-        return suffix
-    }
-
-    void setSuffix(String suffix) {
-        this.suffix = suffix
+    void setName(String name) {
+        this.name = name
     }
 
     Integer getYear() {

@@ -14,7 +14,7 @@ import org.vorpinator.football.model.player.DefenseSpecialTeam
  * Date: 7/16/12
  * Time: 4:01 PM
  */
-class EspnCsvParser implements CsvParser {
+class EspnProjectionCsvParser implements CsvParser {
 
     @Override
     QuarterBack parseQuarterback(String line, Integer year) {

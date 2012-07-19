@@ -54,8 +54,7 @@ class EspnRow extends SourceRow {
     QuarterBack createQuarterBack(){
         QuarterBack quarterback = new QuarterBack();
 
-        quarterback.firstName = this.getFirstName()
-        quarterback.lastName = this.getLastName()
+        quarterback.name = this.getName()
         quarterback.position = this.getPosition()
         quarterback.team = this.getTeam()
         quarterback.year = this.getYear()
@@ -79,8 +78,7 @@ class EspnRow extends SourceRow {
     RunningBack createRunningBack(){
         RunningBack runningBack = new RunningBack();
 
-        runningBack.firstName = this.getFirstName()
-        runningBack.lastName = this.getLastName()
+        runningBack.name = this.getName()
         runningBack.position = this.getPosition()
         runningBack.team = this.getTeam()
         runningBack.year = this.getYear()
@@ -102,8 +100,7 @@ class EspnRow extends SourceRow {
     WideReceiver createWideReceiver(){
         WideReceiver wideReceiver = new WideReceiver();
 
-        wideReceiver.firstName = this.getFirstName()
-        wideReceiver.lastName = this.getLastName()
+        wideReceiver.name = this.getName()
         wideReceiver.position = this.getPosition()
         wideReceiver.team = this.getTeam()
         wideReceiver.year = this.getYear()
@@ -125,8 +122,7 @@ class EspnRow extends SourceRow {
     TightEnd createTightEnd(){
         TightEnd tightEnd = new TightEnd();
 
-        tightEnd.firstName = this.getFirstName()
-        tightEnd.lastName = this.getLastName()
+        tightEnd.name = this.getName()
         tightEnd.position = this.getPosition()
         tightEnd.team = this.getTeam()
         tightEnd.year = this.getYear()
@@ -148,8 +144,7 @@ class EspnRow extends SourceRow {
     Kicker createKicker(){
         Kicker kicker = new Kicker()
 
-        kicker.firstName = this.getFirstName()
-        kicker.lastName = this.getLastName()
+        kicker.name = this.getName()
         kicker.position = this.getPosition()
         kicker.team = this.getTeam()
         kicker.year = this.getYear()
@@ -177,12 +172,8 @@ class EspnRow extends SourceRow {
         Integer.parseInt(rank)
     }
 
-    String getFirstName() {
-        playerTeamPos.split(" ")[0].substring(1)
-    }
-
-    String getLastName() {
-        playerTeamPos.substring(playerTeamPos.indexOf(" ") + 1, playerTeamPos.indexOf(","))
+    String getName() {
+        playerTeamPos.split(",")[0].substring(1)
     }
 
     String getTeam() {
