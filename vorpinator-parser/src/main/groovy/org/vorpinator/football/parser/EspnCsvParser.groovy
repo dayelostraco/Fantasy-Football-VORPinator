@@ -48,10 +48,10 @@ class EspnCsvParser implements CsvParser {
 
     @Override
     List<QuarterBack> parseQuarterbacks(File file, Integer year) {
-        List<QuarterBack> quarterbacks = new ArrayList<QuarterBack>();
+        List<QuarterBack> quarterbacks = new ArrayList<QuarterBack>()
         file.eachLine {
             if(it.split("\t")[0].isNumber()){
-                quarterbacks.add(parseQuarterback(it, year));
+                quarterbacks.add(parseQuarterback(it, year))
             }
         }
 
@@ -60,10 +60,10 @@ class EspnCsvParser implements CsvParser {
 
     @Override
     List<RunningBack> parseRunningBacks(File file, Integer year) {
-        List<RunningBack> runningBacks = new ArrayList<RunningBack>();
+        List<RunningBack> runningBacks = new ArrayList<RunningBack>()
         file.eachLine {
             if(it.split("\t")[0].isNumber()){
-                runningBacks.add(parseRunningBack(it, year));
+                runningBacks.add(parseRunningBack(it, year))
             }
         }
 
@@ -72,10 +72,10 @@ class EspnCsvParser implements CsvParser {
 
     @Override
     List<WideReceiver> parseWideReceivers(File file, Integer year) {
-        List<WideReceiver> wideReceivers = new ArrayList<WideReceiver>();
+        List<WideReceiver> wideReceivers = new ArrayList<WideReceiver>()
         file.eachLine {
             if(it.split("\t")[0].isNumber()){
-                wideReceivers.add(parseWideReceiver(it, year));
+                wideReceivers.add(parseWideReceiver(it, year))
             }
         }
 
@@ -84,10 +84,10 @@ class EspnCsvParser implements CsvParser {
 
     @Override
     List<TightEnd> parseTightEnds(File file, Integer year) {
-        List<TightEnd> tightEnds = new ArrayList<TightEnd>();
+        List<TightEnd> tightEnds = new ArrayList<TightEnd>()
         file.eachLine {
             if(it.split("\t")[0].isNumber()){
-                tightEnds.add(parseTightEnd(it, year));
+                tightEnds.add(parseTightEnd(it, year))
             }
         }
 
@@ -96,10 +96,10 @@ class EspnCsvParser implements CsvParser {
 
     @Override
     List<Kicker> parseKickers(File file, Integer year) {
-        List<Kicker> kickers = new ArrayList<Kicker>();
+        List<Kicker> kickers = new ArrayList<Kicker>()
         file.eachLine {
             if(it.split("\t")[0].isNumber()){
-                kickers.add(parseKicker(it, year));
+                kickers.add(parseKicker(it, year))
             }
         }
 
@@ -108,10 +108,10 @@ class EspnCsvParser implements CsvParser {
 
     @Override
     List<DefenseSpecialTeam> parseDefenseSpecialTeams(File file, Integer year) {
-        List<DefenseSpecialTeam> defenseSpecialTeams = new ArrayList<DefenseSpecialTeam>();
+        List<DefenseSpecialTeam> defenseSpecialTeams = new ArrayList<DefenseSpecialTeam>()
         file.eachLine {
             if(it.split("\t")[0].isNumber()){
-                defenseSpecialTeams.add(parseDefenseSpecialTeam(it, year));
+                defenseSpecialTeams.add(parseDefenseSpecialTeam(it, year))
             }
         }
 

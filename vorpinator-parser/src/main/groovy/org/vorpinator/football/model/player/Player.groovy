@@ -7,16 +7,17 @@ package org.vorpinator.football.model.player
  */
 abstract class Player {
 
-    private String firstName;
-    private String lastName;
-    private String suffix;
-    private Integer year;
-    private String team;
-    private String position;
-    private Integer fumbles;
-    private Integer projectedPoints;
-    private String projectionSource;
-    private Integer sourceRank;
+    private String firstName
+    private String lastName
+    private String suffix
+    private Integer year
+    private String team
+    private String position
+    private Integer fumbles
+    private Integer projectedPoints
+    private String projectionSource
+    private Integer sourceRank
+    private Double vorp
 
     String getFirstName() {
         return firstName
@@ -96,5 +97,13 @@ abstract class Player {
 
     void setSourceRank(Integer sourceRank) {
         this.sourceRank = sourceRank
+    }
+
+    Double getVorp() {
+        return vorp
+    }
+
+    void setVorp(Double vorp) {
+        this.vorp = vorp
     }
 }
