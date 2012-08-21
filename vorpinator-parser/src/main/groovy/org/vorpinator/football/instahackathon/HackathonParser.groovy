@@ -10,21 +10,31 @@ import org.apache.commons.lang.StringUtils
  * Date: 8/21/12
  * Time: 12:00 PM
  */
-String hackathonEventId = "8a57f6833931012d013949d0570f0000"
 File hackathonTeamCsv = new File("/Users/dayelostraco/Desktop/Hackathon Signup.txt")
 File hackathonCategoriesCsv = new File("/Users/dayelostraco/Desktop/Hackathon Categories.txt")
 
-parseCategories(hackathonCategoriesCsv, hackathonEventId)
-parseTeams(hackathonTeamCsv, hackathonEventId)
+Calendar eventCal = new GregorianCalendar(2012, 7, 25, 9, 0)
+Hackathon hackathon = createHackathonEvent("Hackathon 2.0 Dry Run #2", eventCal.getTime(), 1, 30)
+parseCategories(hackathonCategoriesCsv, hackathon)
+parseTeams(hackathonTeamCsv, hackathon)
 
-public void parseCategories(File file, String hackathonEventId) {
+public Hackathon createHackathonEvent(String eventName, Date eventDate, int categorySelections, int roundTime){
+    Hackathon hackathon = new Hackathon(null, eventName, eventDate, categorySelections, roundTime)
+    hackathon.setHackathonEventId(addHackathonEventViaRest(hackathon))
+
+    hackathon
+}
+
+public void parseCategories(File file, Hackathon hackathon) {
     file.eachLine {
-        Category category = new Category(null, it, hackathonEventId)
+        Category category = new Category(null, it, hackathon.getHackathonEventId())
         category.setHackathonCategoryId(addCategoryViaRest(category))
+
+        category
     }
 }
 
-public void parseTeams(File file, String hackathonEventId) {
+public void parseTeams(File file, Hackathon hackathon) {
     int lineCount = 0;
 
     file.eachLine {
@@ -32,7 +42,7 @@ public void parseTeams(File file, String hackathonEventId) {
         if(lineCount!=0){
             String[] columns = it.split("\t")
 
-            Team team = new Team(null, lineCount + "", columns[0], hackathonEventId, null, "2")
+            Team team = new Team(null, lineCount + "", columns[0], hackathon.getHackathonEventId(), null, "2")
             team.setTeamId(addTeamViaRest(team))
 
             if(StringUtils.isNotEmpty(team.getTeamId())){
@@ -109,6 +119,24 @@ public String addCategoryViaRest(Category category){
             String teamMemberId = jsonObject.get("teamMemberId")
 
             teamMemberId
+        }
+        else {
+            null
+        }
+    }
+}
+
+public String addHackathonEventViaRest(Hackathon hackathon) {
+
+    def httpBuilder = new HTTPBuilder("http://instahackathon.elasticbeanstalk.com/")
+
+    httpBuilder.post(body: hackathon.toJsonMap(), path: "hackathon/add", requestContentType: ContentType.JSON) { resp, json ->
+
+        if (resp.statusLine.statusCode == 200) {
+            JSONObject jsonObject = json;
+            String hackathonEventId = jsonObject.get("hackathonEventId")
+
+            hackathonEventId
         }
         else {
             null
