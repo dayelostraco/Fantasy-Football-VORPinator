@@ -10,11 +10,11 @@ import org.apache.commons.lang.StringUtils
  * Date: 8/21/12
  * Time: 12:00 PM
  */
-File hackathonTeamCsv = new File("/Users/dayelostraco/Desktop/Hackathon Signup.txt")
+File hackathonTeamCsv = new File("/Users/dayelostraco/Desktop/Hackathon 2.0 Team Choice Numbers.txt")
 File hackathonCategoriesCsv = new File("/Users/dayelostraco/Desktop/Hackathon Categories.txt")
 
 Calendar eventCal = new GregorianCalendar(2012, 7, 25, 9, 0)
-Hackathon hackathon = createHackathonEvent("Hackathon 2.0 Dry Run #2", eventCal.getTime(), 1, 30)
+Hackathon hackathon = createHackathonEvent("Hackathon 2.0 Dry Run #3", eventCal.getTime(), 1, 30)
 parseCategories(hackathonCategoriesCsv, hackathon)
 parseTeams(hackathonTeamCsv, hackathon)
 
@@ -42,7 +42,7 @@ public void parseTeams(File file, Hackathon hackathon) {
         if(lineCount!=0){
             String[] columns = it.split("\t")
 
-            Team team = new Team(null, lineCount + "", columns[0], hackathon.getHackathonEventId(), null, "2")
+            Team team = new Team(null, lineCount + "", columns[0], hackathon.getHackathonEventId(), null, columns[15])
             team.setTeamId(addTeamViaRest(team))
 
             if(StringUtils.isNotEmpty(team.getTeamId())){
